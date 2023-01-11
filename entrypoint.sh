@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/bash -l
 
 set -e
 
@@ -17,7 +17,11 @@ if [ ! -f "$bus_path" ]; then
   exit 1
 fi
 
-CANDLE_HOSTNAME=$(grep -Eo 'registry: (.*)' "$bus_path" | cut -d ' ' -f2)
+#change directory to the containing directory of bus file
+bus_dir=$(dirname "$bus_path")
+cd "$bus_dir"
+
+CANDLE_HOSTNAME=$(grep -Eo 'registry: (.*)' "$(basename "$bus_path")" | cut -d ' ' -f2)
 export CANDLE_HOSTNAME
 
-/usr/local/bin/nanobus push "$bus_path"
+nanobus push "$(basename "$bus_path")"
