@@ -1,15 +1,9 @@
-FROM nanobus/nanobus:latest
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y wget
+RUN wget -q https://nanobus.io/install.sh -O - | /bin/bash
 
-#SET WORKDIR to value from env variable name BUS_PATH
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY entrypoint.sh /entrypoint.sh
 
-ENV OCI_REGISTRIES 'CANDLE'
-ENV CANDLE_HOSTNAME 'reg.candle.run'
-ENV CANDLE_USERNAME $REGISTRY_USERNAME
-ENV CANDLE_PASSWORD $REGISTRY_PASSWORD
-
-COPY $BUS_PATH/ /app
-
-WORKDIR /app
-#RUN "export CANDLE_HOSTNAME=`grep -Eo 'registry: (.*)' bus.yaml | cut -d ' ' -f2`"
-
-ENTRYPOINT ["/app/nanobus", "push"]
+# Code file to execute when the docker container starts up (`entrypoint.sh`)
+ENTRYPOINT ["/entrypoint.sh"]
