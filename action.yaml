@@ -1,0 +1,24 @@
+# action.yaml
+name: "Nanobus Push"
+description: "Github action to automate packaging and pushing a Nanobus application to a supported registry, such as reg.candle.run."
+inputs:
+  path:
+    description: "Path to the directory containing bus.yaml.  This contains the registry configuration details.  Defaults to reg.candle.run."
+    required: true
+    default: "."
+  username:
+    description: "Username for registry"
+    required: true
+  password:
+    description: "Password for registry"
+    required: true
+outputs:
+  tag:
+    description: "The image tag that was pushed"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    BUS_PATH: ${{ inputs.path }}
+    REGISTRY_USERNAME: ${{ inputs.username }}
+    REGISTRY_PASSWORD: ${{ inputs.password }}
