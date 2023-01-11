@@ -6,7 +6,9 @@ ENV OCI_REGISTRIES 'CANDLE'
 ENV CANDLE_USERNAME $REGISTRY_USERNAME
 ENV CANDLE_PASSWORD $REGISTRY_PASSWORD
 
-WORKDIR $BUS_PATH
+COPY $BUS_PATH/ /app
+
+WORKDIR /app
 RUN "export CANDLE_HOSTNAME=`grep -Eo 'registry: (.*)' bus.yaml | cut -d ' ' -f2`"
 
 ENTRYPOINT ["/app/nanobus", "push", "|", "grep", "-Eo", "'Pushing (.*)'", "|", "cut", "-d", "' '", "-f2"]
