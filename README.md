@@ -23,17 +23,21 @@ See a working example of push that is used to package and push the NanoBus docum
 ### `path`
 
 **Description:** Path to the bus.yaml. This file contains the registry configuration details. Defaults to `bus.yaml` which would be present in the root directory for the git repo.
+
 **Required:** true
+
 **Default:** `bus.yaml`
 
 ### `username`
 
 **Description:** Username for registry
+
 **Required:** true
 
 ### `password`
 
 **Description:** Password for registry
+
 **Required:** true
 
 ## Outputs
