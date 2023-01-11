@@ -1,6 +1,6 @@
 # action.yaml
-name: "Nanobus Push"
-description: "Github action to automate packaging and pushing a Nanobus application to a supported registry, such as reg.candle.run."
+name: "NanoBus Push"
+description: "Github action to automate packaging and pushing a NanoBus application to a supported registry, such as reg.candle.run."
 branding:
   icon: 'layers'
   color: 'orange'
