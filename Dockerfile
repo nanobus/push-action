@@ -12,4 +12,4 @@ COPY $BUS_PATH/ /app
 WORKDIR /app
 #RUN "export CANDLE_HOSTNAME=`grep -Eo 'registry: (.*)' bus.yaml | cut -d ' ' -f2`"
 
-ENTRYPOINT ["/app/nanobus", "push", "|", "grep", "-Eo", "'Pushing (.*)'", "|", "cut", "-d", "' '", "-f2"]
+ENTRYPOINT ["/app/nanobus", "push"]
