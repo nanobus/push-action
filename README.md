@@ -1,6 +1,6 @@
 # NanoBus Push
 
-A Github action to automate packaging and pushing a Nanobus application to a supported registry, such as https://reg.candle.run.
+A Github action to automate packaging and pushing a NanoBus application to a supported registry, such as https://reg.candle.run.
 
 Not every OCI registry supports the artifact format that is used by NanoBus, so Candle (https://candle.dev) has created a free registry that supports it. You can sign up for a free account at https://reg.candle.run.  If you have a different registry that you need to use, the push command will target any registry that is defined in your `bus.yaml` file for your application.
 
