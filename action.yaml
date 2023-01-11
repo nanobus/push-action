@@ -1,6 +1,9 @@
 # action.yaml
 name: "Nanobus Push"
 description: "Github action to automate packaging and pushing a Nanobus application to a supported registry, such as reg.candle.run."
+branding:
+  icon: 'layers'
+  color: 'orange'
 inputs:
   path:
     description: "Path to the main bus file.  Usually the file name is `bus.yaml`.  This contains the registry configuration details.  Defaults to `reg.candle.run`."
