@@ -24,4 +24,4 @@ cd "$bus_dir"
 CANDLE_HOSTNAME=$(grep -Eo 'registry: (.*)' "$(basename "$bus_path")" | cut -d ' ' -f2)
 export CANDLE_HOSTNAME
 
-nanobus push "$(basename "$bus_path")"
+nanobus push "$(basename "$bus_path")" | grep -Eo '^Pushing (.*)$' | cut -d ' ' -f2
